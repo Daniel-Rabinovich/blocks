@@ -4,7 +4,7 @@ import { encrypt, decrypt } from './encryption'
 // Block fetching logic here
 //
 
-const server = ''
+const server = 'http://localhost:3000'
 
 export const getBlocks = async (token, password) => {
 

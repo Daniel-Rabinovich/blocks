@@ -2,7 +2,7 @@
 // auth logic here
 //
 
-const server = ''
+const server = 'http://localhost:3000'
 
 export const login = async (username, password) => {
 

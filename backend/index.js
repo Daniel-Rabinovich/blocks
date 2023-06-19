@@ -124,7 +124,6 @@ app.get('/api/blocks', validateToken, async(req, res) => {
         FROM blocks
         WHERE username=$1
         ORDER BY id DESC
-        LIMIT 100
     `
     try {
         const result = await query(stmt, [req.username])
@@ -141,27 +140,21 @@ app.get('/api/blocks', validateToken, async(req, res) => {
 
 app.post('/api/blocks', validateToken, async(req, res) => {
     // list of allowed blocks
-    const allowedBlocks = ['text']
-    const { type, data } = req.body
+    const { data } = req.body
     
     // check fields
-    if (!type || !data){
+    if (!data){
         return res.status(400).json({
-            'error': 'missing fields'
+            'error': 'missing block data'
         })
     } else {
-        if(!allowedBlocks.includes(type)){
-            return res.status(400).json({
-                'error': 'This type of block is not allowed'
-            })
-        }
         const stmt =`
-            INSERT INTO blocks(username,type,data)
-            VALUES ($1,$2,$3)
+            INSERT INTO blocks(username,data)
+            VALUES ($1,$2)
             RETURNING id,username,data,to_char(date, 'YYYY-MM-DD') as date
         `
         try {
-            const result = await query(stmt,[req.username, type, data])
+            const result = await query(stmt,[req.username, data])
             return res.status(200).json({
                 'message': 'block added',
                 'block': result[0]
@@ -211,7 +204,7 @@ app.post('/api/auth/login', async (req, res) => {
         // user is not registred
         // and typed username and password to register
         const stmt = `
-            INSERT INTO Users(username, password)
+            INSERT INTO users(username, password)
             VALUES ($1, $2)
             `
         await query(stmt, [username, hashedPassword])
