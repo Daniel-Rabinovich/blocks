@@ -218,12 +218,6 @@ app.post('/api/auth/login', async (req, res) => {
 
         const token = jwt.sign({ username }, secret, expire)
 
-        res.cookie('token', token, {
-            maxAge: 3600000,
-            httpOnly: true,
-            sameSite: 'None'
-        })
-
         // response with signed token
         return res.status(200).json({
             token,
@@ -235,12 +229,6 @@ app.post('/api/auth/login', async (req, res) => {
         // user is registred and typed correct password
 
         const token = jwt.sign({ username }, secret, expire)
-
-        res.cookie('token', token, {
-            maxAge: 3600000,
-            httpOnly: true,
-            sameSite: 'None'
-        })
 
         // responde with signed token
         return res.status(200).json({
@@ -261,37 +249,6 @@ app.post('/api/auth/login', async (req, res) => {
     }
 })
 
-
-app.post('/api/auth/restore_session', async (req, res) => {
-
-    const token = req.cookies["token"]
-
-    if(!token) {
-        res.status(400).json({
-            "error": "missing token cookie"
-        })
-    } else {
-        jwt.verify(token, secret, (err, data) => {
-            if(err) {
-                return res.status(400).json({
-                    "error": "invalid token"
-                })
-            } else {
-                return res.status(200).json({
-                    "token": token,
-                    "username": data.username,
-                    "message": "restore success"
-                })
-            }
-        })
-    }
-
-})
-
-app.get('api/auth/logout', async(_, res) => {
-    res.clearCookie('token')
-    return res.status(200).end()
-})
 
 // *********************
 // RUN
