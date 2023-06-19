@@ -4,7 +4,7 @@ body {
     max-width:750px;
     margin:0px auto;
     font-family: 'Noto Sans', sans-serif;
-    font-size:18px;
+    font-size:16px;
 
 }
 
@@ -17,8 +17,9 @@ input {
     border:1px solid #373740;
     color: #e3e2e6;
     padding:10px;
-
+    font-size:16px;
 }
+
 textarea {
     max-width:100%;
     width:100%;
@@ -27,11 +28,13 @@ textarea {
     line-height: 1.35;
     border:1px solid #373740;
     color: #e3e2e6;
+    font-size:16px;
 }
 
 a {
     color:#e3e2e6;
 }
+
 img {
     width:100%;
 }
@@ -41,6 +44,7 @@ blockquote {
     border-left:5px solid #36eeb9;
     padding:10px;
     margin:0px;
+    font-size:16px;
 }
 
 table {
@@ -49,6 +53,7 @@ table {
     border-collapse: collapse;
     overflow: auto;
 }
+
 td,th,tr {
     padding:10px;
     border:1px solid #fff;
@@ -58,11 +63,9 @@ td,th,tr {
 .block {
     padding: 10px 20px 10px 20px;
     background-color:#18191b;
-    margin:20px 10px 20px 10px;
+    margin:10px auto;
     line-height: 1.35;
 }
-
-
 
 .block > code,pre {
     font-family: Consolas, monaco, 'Ubuntu Mono', 'Liberation Mono', 'Courier New', Courier, monospace;
@@ -73,26 +76,28 @@ td,th,tr {
     border-left:5px solid #045d56;
 }
 
-
 .tooltip {
     display: flex;
-    margin:10px;
+    margin:10px auto;
     margin-top:-20px;
     background-color:#18191b;
     color:#9d9d9d;
     text-align:center;
-    font-size:16px;
     font-weight:800;
 }
+
 .tooltipItem {
     padding:20px;
     flex:1;
     vertical-align:bottom;
+    font-size:14px;
 }
+
 .tooltipItem > span {
-    font-size:18px;
     display:block;
+    font-size: 16px;
 }
+
 .tooltip > p {
     text-align:center;
 }
@@ -104,6 +109,7 @@ td,th,tr {
 
 .loginButton {
     background-color:#2d2e30;
+    font-size:16px;
     border:0px;
     padding:10px;
     color:#ffffff;
