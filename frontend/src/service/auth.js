@@ -22,10 +22,4 @@ export const login = async (username, password) => {
 
 }
 
-export const logout = async () => {
-
-    return await fetch(`${server}/api/auth/logout`)
-
-}
-
 

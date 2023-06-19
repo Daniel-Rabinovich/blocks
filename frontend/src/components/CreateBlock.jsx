@@ -6,7 +6,7 @@ const CreateBlock = (props) => {
     const [text, setText] = useState('')
 
     const sendUpdatedBlock = (e) => {
-        props.add(e,'text',text)
+        props.add(e, text)
         setText('')
         props.setShow(false)
     }
