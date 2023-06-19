@@ -10,6 +10,6 @@ CREATE TABLE users (
 CREATE TABLE blocks (
     id SERIAL PRIMARY KEY,
     username VARCHAR(50) references users(username),
-    date date,
-    data TEXT
+    date DATE DEFAULT CURRENT_TIMESTAMP,
+    data TEXT NOT NULL
 );
