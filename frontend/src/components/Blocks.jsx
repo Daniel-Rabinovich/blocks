@@ -28,14 +28,14 @@ const Blocks = () => {
         }
     }
 
-    const addBlock = async(event, type, data) => {
+    const addBlock = async(event, data) => {
         event.preventDefault()
         if(data === '') return
         try {
             const postedBlock = await postBlock(
                 login.token,
                 login.password,
-                { data, type }
+                { data }
             )
             setBlocks(existingBlocks => [postedBlock].concat(existingBlocks))
         } catch (e) {
