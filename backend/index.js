@@ -6,12 +6,14 @@ const bcrypt = require('bcrypt')
 const express = require('express')
 const jwt = require('jsonwebtoken')
 const { query } = require('./db.js')
+const path = require('path');
 
 
 const app = express()
 app.use(cors())
 app.options('*', cors())
 app.use(express.json()) // parse json requests
+app.use(express.static(path.join(__dirname, 'dist')));
 const secret = 'k3J30Vwb0XVjFq7bsNCPNk3J30Vwb0Xhdsa2M2TrVgjSRQoqNyXALwfgsIvt'
 
 // *********************
@@ -37,6 +39,10 @@ const validateToken = (req, res, next) => {
 // *********************
 // API
 // *********************
+
+app.get('/', (_, res) => {
+    return res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
 
 // default api gateway
 app.get('/api', async (_, res) => {
