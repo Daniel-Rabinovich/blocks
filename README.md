@@ -1,7 +1,11 @@
-# Blocks
-Privacy oriented note taking app
+# About
+Privacy oriented note taking app [Demo](https://mdblocks.xyz)
 
-The data is encrypted with AES in the frontend before sent to the backend, **TLS should be used**
+
+* The data is encrypted with AES-256 in the frontend before sent to the backend.
+* Use markdown to style your notes
+* Simple registration
+
 
 ## Setting up the database
 
